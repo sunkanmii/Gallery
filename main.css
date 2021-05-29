@@ -1,0 +1,209 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Courier', sans-serif;
+}
+main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+#upload{
+    display: none;
+}
+#upload-label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7rem;
+    height: 2rem;
+    border-radius: 7rem;
+    font-size: 1.1rem;
+    margin-top: 2rem;
+    box-shadow: 5px 6px 13px #e1d9d9;
+    color: white;
+    background: linear-gradient(to bottom right, gold, rgb(165 55 165));
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+#upload-label:hover{
+    filter: brightness(120%);
+}
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.image-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+}
+.image-container #image-section {
+    width: 100%;
+    margin-bottom: 1rem;
+    display: grid;
+    grid-template-columns: minmax(auto, 3.8rem) minmax(auto, 16rem) minmax(auto, 3.8rem);
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    min-height: 22rem;
+    position: relative;
+    transition: all 0.5s ease-in;
+}
+
+img {
+    width: 5rem;
+    height: auto;
+    transition: all 0.5s ease;
+}
+
+/* Image transitions */
+
+.blur-1, .blur-2, .blur-1-left, .blur-2-right {
+    position: relative;
+    filter: blur(2px);
+    width: 4rem;
+    height: auto;
+    transition: all 0.5s ease;
+}
+.blur-1 {
+    order: 1;
+    animation: 5s ease-in 1 forwards slide-right;
+}
+
+.show-image{
+    position: relative;
+    width: 10rem;
+    height: auto;
+    order: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    transition: all 0.5s ease;
+}
+/* .blur-1-left{
+    animation: 5s ease-in 1 forwards blur-slide-left;
+} */
+.blur-2{
+    order: 3;
+    /* animation: 5s ease-in 1 forwards slide-left; */
+}
+/* .blur-2-right{
+    animation: 5 s ease-in 1 forwards blur-slide-right;
+} */
+
+/* @keyframes slide-right{
+    0%{
+        width: 10rem;
+        left: 3rem;
+    }
+    100%{
+        width: 4rem;
+        left: 0rem;
+    }
+}
+@keyframes blur-slide-left {
+    0%{
+        width: 4rem;
+        right: 6rem;
+    }
+    100%{
+        width: 4rem;
+        right: 0rem;
+    }
+}
+@keyframes slide-left{
+    0%{
+        width: 10rem;
+        filter: blur(0px);
+        left: 3rem;
+    }
+    100%{
+        width: 4rem;
+        filter: blur(2px);
+        left: 0rem;
+    }
+}
+@keyframes blur-slide-right {
+    0%{
+        width: 4rem;
+        right: 0rem;
+    }
+    100%{
+        width: 4rem;
+        right: 3rem;
+    }
+} */
+/* .show-image-right{
+    animation: 5s ease-in 1 forwards to-right;
+}
+.show-image-left{
+    animation: 5s ease-in 1 forwards to-left;
+} */
+
+@keyframes to-right {
+    0%{
+        left: 2rem;
+        width: 4rem;
+    }
+    100%{
+        left: 0rem;
+        width: 10rem;
+    }
+}
+@keyframes to-left {
+    0%{
+        right: 2rem;
+        width: 4rem;
+    }
+    100%{
+        right: 0rem;
+        width: 10rem;
+    }
+}
+.hidden{
+    width: 4rem;
+    height: auto;
+    display: none;
+    z-index: -1;
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+@keyframes move-left {
+    0%{
+        opacity: 1;
+        display: block;
+        right: 0rem;
+    }
+    75%{
+        opacity: 0;
+        right: 4rem;
+    }
+    100%{
+        opacity: 0;
+        right: 4rem;
+        display: none;
+    }
+}
+@keyframes move-right {
+    0%{
+        opacity: 1;
+        left: 0rem;
+    }
+    75%{
+        opacity: 0;
+        left: 4rem;
+    }
+    100%{
+        opacity: 0;
+        left: 4rem;
+        display: none;
+    }
+}
