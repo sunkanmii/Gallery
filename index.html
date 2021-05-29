@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+    <title>Gallery</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+<body>
+    <main>
+        <article class="image-container">
+            <section id="image-section">
+                <img src="./imgs/Snapchat-189213880.jpg" alt="" class="hidden"/>
+                <img src="./imgs/Snapchat-271193817.jpg" alt="" class="blur-1"/>
+                <img src="./imgs/Snapchat-284567420.jpg" alt=""class="show-image"/>
+                <img src="./imgs/WhatsApp Image 2021-03-17 at 9.32.21 AM.jpeg" alt="" class="blur-2"/>
+                <img src="./imgs/Snapchat-189213880.jpg" alt="" class="hidden"/>
+            </section>
+
+            <section class="button-section">
+                <button onclick="prevImage()">Previous</button>
+                <button onclick="nextImage()">Next</button>
+            </section>
+
+            <form method="POST">
+                <input type="file" multiple accept="image/*" id="upload">
+                <label id="upload-label" for="upload">Upload</label>
+            </form>
+            <p id="error">Not more than 5MB</p>
+        </article>
+    </main>
+    <script src='main.js'></script>
+</body>
+</html>
