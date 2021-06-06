@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -9,29 +10,38 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
 </head>
-<body>
-    <main>
-        <article class="image-container">
-            <section id="image-section">
-                <img src="./imgs/Snapchat-189213880.jpg" alt="" class="hidden"/>
-                <img src="./imgs/Snapchat-271193817.jpg" alt="" class="blur-1"/>
-                <img src="./imgs/Snapchat-284567420.jpg" alt=""class="show-image"/>
-                <img src="./imgs/WhatsApp Image 2021-03-17 at 9.32.21 AM.jpeg" alt="" class="blur-2"/>
-                <img src="./imgs/Snapchat-189213880.jpg" alt="" class="hidden"/>
-            </section>
 
-            <section class="button-section">
-                <button onclick="prevImage()">Previous</button>
-                <button onclick="nextImage()">Next</button>
+<body>
+    <section class="fullscreen-img hide">
+    </section>
+    <article class="display-all-imgs hide">
+        <p id="total-imgs"><span id="imgs-number">0</span> total images</p>
+    </article>
+
+    <main>
+        <h1 id="app-title">Gallery</h1>
+        <article class="image-container">
+            <button id="previous" onclick="prevImage()">&#60;</button>
+            <section class="image-section">
+
             </section>
+            <button id="next" onclick="nextImage()">&#62;</button>
 
             <form method="POST">
                 <input type="file" multiple accept="image/*" id="upload">
                 <label id="upload-label" for="upload">Upload</label>
             </form>
             <p id="error">Not more than 5MB</p>
+
+            <button id="view-all-imgs" onclick="viewImgs()">View All Images</button>
+
         </article>
+        <button id="close-button" class="hide">x</button>
     </main>
+    <footer>
+        <a href='https://www.freepik.com/vectors/background'>Background vector created by freepik - www.freepik.com</a>
+    </footer>
     <script src='main.js'></script>
 </body>
+
 </html>
