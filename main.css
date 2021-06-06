@@ -31,6 +31,7 @@ main {
     position: relative;
     top: 3rem;
     background: linear-gradient(124deg, #fbe6a8, #609a92);
+    background-clip: text;
     -webkit-background-clip: text;
     font-weight: bolder;
     cursor: pointer;
@@ -170,6 +171,7 @@ img {
 #view-all-imgs {
     font-size: 1.1rem;
     background: -webkit-linear-gradient(318deg, goldenrod, #1e1e98);
+    background-clip: text;
     -webkit-background-clip: text;
     font-weight: bold;
     border: none;
