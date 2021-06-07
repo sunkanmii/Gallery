@@ -28,9 +28,10 @@ main {
     width: 100%;
     text-align: center;
     height: auto;
+    font-size: 2rem;
     position: relative;
     top: 3rem;
-    background: linear-gradient(124deg, #fbe6a8, #609a92);
+    background: linear-gradient(124deg, #f1c853, #b55389);
     background-clip: text;
     -webkit-background-clip: text;
     font-weight: bolder;
@@ -114,7 +115,6 @@ img {
 
 .blur-1 {
     order: 1;
-    animation: 5s ease-in 1 forwards slide-right;
 }
 
 .show-image {
