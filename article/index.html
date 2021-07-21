@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+    <title>Gallery</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./css/main.css'>
+</head>
+
+<body>
+    <section class="fullscreen-img hide">
+    </section>
+    <article class="display-all-imgs hide">
+        <p id="total-imgs"><span id="imgs-number">0</span> total images</p>
+    </article>
+
+    <main>
+        <h1 id="app-title">Gallery</h1>
+        <article class="image-container">
+            <button id="previous" onclick="prevImage()">&#60;</button>
+            <section class="image-section">
+
+            </section>
+            <button id="next" onclick="nextImage()">&#62;</button>
+
+            <form method="POST">
+                <input type="file" multiple accept="image/*" id="upload">
+                <label id="upload-label" for="upload">Upload</label>
+            </form>
+            
+            <p id="error">Not more than 5MB</p>
+
+            <button id="view-all-imgs" onclick="viewImgs()">View All Images</button>
+
+        </article>
+        <button id="close-button" class="hide">x</button>
+    </main>
+    <footer>
+        <a href='https://www.freepik.com/vectors/background'>Background vector created by freepik - www.freepik.com</a>
+    </footer>
+    <script src='./js/main.js'></script>
+</body>
+
+</html>
