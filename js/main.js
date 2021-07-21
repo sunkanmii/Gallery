@@ -1,6 +1,13 @@
+window.onload = () => {
+    Object.keys(localStorage).forEach((key, index) => {
+        addImage(localStorage.getItem(key));
+    })
+};
+
 const CLOUDINARY_PRESET = 'nwzufxhy';
 const fileId = document.querySelector('#upload');
 const errorP = document.querySelector('#error');
+const body = document.querySelector('body');
 const allImgsSection = document.querySelector('.image-section');
 let allImgs = document.querySelectorAll('.image-section img');
 const closeButton = document.querySelector('#close-button');
@@ -16,17 +23,24 @@ closeButton.addEventListener('click', () => {
         displayImgs.innerHTML = "";
         displayImgs.classList.toggle('hide');
         closeButton.classList.add('hide');
+        if (body.getAttribute('style') != null) {
+            body.removeAttribute('style');
+        }
     }
 })
 
 fileId.onchange = function fileChange() {
-    allFiles = [...(this.files)]
-    allFiles.forEach(uploadFile)
+    allFiles = [...(this.files)];
+
+    for (let i = 0; i < allFiles.length; i++) {
+        uploadFile(allFiles[i], i);
+    }
 }
 
-function uploadFile(file) {
+function uploadFile(file, i) {
     let url = 'https://api.cloudinary.com/v1_1/kanmi24/upload';
     let formData = new FormData();
+    let indArr = [];
 
     formData.append('file', file);
     formData.append('upload_preset', CLOUDINARY_PRESET);
@@ -35,6 +49,7 @@ function uploadFile(file) {
         errorP.textContent = "File cannot be more than 5 MB";
         return;
     }
+
     errorP.textContent = "Please wait...";
     fetch(url, {
             method: 'POST',
@@ -49,6 +64,16 @@ function uploadFile(file) {
             setTimeout(() => {
                 errorP.textContent = "File cannot be more than 5 MB";
             }, 4000);
+
+            if (localStorage.getItem('img-0') != null) {
+                Object.keys(localStorage).forEach((key, index) => {
+                    indArr.push(index + 1);
+                })
+            } else {
+                indArr.push(0);
+            }
+
+            localStorage.setItem(`img-${indArr[indArr.length-1]}`, e.secure_url)
             addImage(e.secure_url);
         })
         .catch((error) => {
@@ -75,6 +100,7 @@ function addImage(url) {
         displayImgs.classList.toggle('hide');
         let tempEle = newImg.cloneNode();
         tempEle.classList.toggle('view');
+        body.style.overflow = 'hidden';
         displayImgs.appendChild(tempEle);
         closeButton.classList.remove('hide');
     })
